@@ -1,0 +1,5 @@
+Submission format | Format code | Bundles
+----------------- | ----------- | -------
+Image | IMG | 5 @ $450 10 @ $800
+Audio | Flac | 3 @ $427.50 6 @ $810 9 @ $1147.50
+Video | VID | 3 @ $570 5 @ $900 9 @ $1530
