@@ -7,9 +7,11 @@ import java.util.List;
 
 public class BundleCalculator {
 
-    public static double totalPrice;
+    FormatInformation formatInformation = new FormatInformation();
 
-    public static List getBundleSize(List format) {
+    public double totalPrice;
+
+    public List<Double> getBundleSize(List<String> format) {
         List<Double> bundleSize = new ArrayList<Double>();
         for (int i = 0; i < format.size(); i++) {
             String tempBundleSzie = ((String) format.get(i)).split("\\@")[0].trim();
@@ -18,7 +20,7 @@ public class BundleCalculator {
         return bundleSize;
     }
 
-    public static List getBundlePrice(List format) {
+    public List<Double> getBundlePrice(List<String> format) {
         List<Double> bundlePrice = new ArrayList<Double>();
         for (int i = 0; i < format.size(); i++) {
             String tempBundlePrice = ((String) format.get(i)).split("\\@")[1].trim().replace("$", "");
@@ -27,7 +29,7 @@ public class BundleCalculator {
         return bundlePrice;
     }
 
-    public static HashMap getOrder(List format) {
+    public HashMap<String, Integer> getOrder(List<String> format) {
         HashMap<String, Integer> orderMap = new HashMap<String, Integer>();
         for (int i = 0; i < format.size(); i++) {
             String tempOrderAmount = ((String) format.get(i)).split(" ")[0].trim();
@@ -37,16 +39,18 @@ public class BundleCalculator {
         return orderMap;
     }
 
-    public static void getTotalPrice(String formatCode, HashMap<String, Integer> orderMap) {
+    public void getTotalPrice(String formatCode, HashMap<String, Integer> orderMap) {
+
+
         formatCode = formatCode.toLowerCase();
 
         double formatAmount = orderMap.get(formatCode);
         // store total price
         // get bundle price and bundle size by format code
-        List format = ReadFormat.findFormat(formatCode);
-        List bundlePrice = getBundlePrice(format);
+        List<String> format = formatInformation.findFormat(formatCode);
+        List<Double> bundlePrice = getBundlePrice(format);
         Collections.reverse(bundlePrice);
-        List bundleSize = getBundleSize(format);
+        List<Double> bundleSize = getBundleSize(format);
         Collections.reverse(bundleSize);
         for (int i = 0; i < bundleSize.size(); i++) {
             if (i + 1 < bundleSize.size()) {
@@ -72,16 +76,19 @@ public class BundleCalculator {
     }
 
     public static void main(String[] args) {
+        
+        BundleCalculator BundleCalculator = new BundleCalculator();
 
+        Order order = new Order();
         // get customer order
-        List order = ReadOrder.readOrder();
+        List<String> readOrder = order.readOrder();
         // save customer order in a map
-        HashMap<String, Integer> orderMap = getOrder(order);
+        HashMap<String, Integer> orderMap = BundleCalculator.getOrder(readOrder);
         for (String i : orderMap.keySet()) {
-            getTotalPrice(i,orderMap);
+            BundleCalculator.getTotalPrice(i,orderMap);
 
         }
-        System.out.println(totalPrice);
+        System.out.println(BundleCalculator.totalPrice);
     }
 
 }

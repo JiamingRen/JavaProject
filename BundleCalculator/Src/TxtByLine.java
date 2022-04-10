@@ -4,8 +4,8 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.*;
 import java.io.*;
 
-public class ReadTxtByLine {
-    public static List<String> readFileInList(String fileName) {
+public class TxtByLine {
+    public List<String> readFileInList(String fileName) {
 
         List<String> lines = Collections.emptyList();
         try {

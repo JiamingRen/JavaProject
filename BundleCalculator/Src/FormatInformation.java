@@ -7,12 +7,14 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 
-public class ReadFormat {
+public class FormatInformation {
+    
+    TxtByLine readTxtByLine  = new TxtByLine();
 
-    public static List<String> findFormat(String theFormat) {
+    public List<String> findFormat(String theFormat) {
 
         //read txt file
-        List<String> l = ReadTxtByLine.readFileInList("D:\\JavaProject\\BundleCalculator\\Input\\format.txt");
+        List<String> l = readTxtByLine.readFileInList("D:\\JavaProject\\BundleCalculator\\Input\\format.txt");
 
         // find required format and its bundleSize and Price
         // regex to find bundle size and price

@@ -6,9 +6,12 @@ import java.util.*;
 
 
 //read order txt file by lines and save into list
-public class ReadOrder {
-    public static List readOrder(){
-        List l = ReadTxtByLine.readFileInList("D:\\JavaProject\\BundleCalculator\\Input\\order.txt");
+public class Order {
+    TxtByLine readTxtByLine = new TxtByLine();
+
+    public List<String> readOrder(){
+
+        List<String> l = readTxtByLine.readFileInList("D:\\JavaProject\\BundleCalculator\\Input\\order.txt");
         System.out.println("order: " + l);
         return l;
     }
