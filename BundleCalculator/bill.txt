@@ -1,0 +1,23 @@
+vid
+BundleSize: 9.0 have 1 bundles
+Pirce Calculation: 
+1 x 1530.0 = 1530.0
+BundleSize: 5.0 have 0 bundles
+Pirce Calculation: 
+0 x 900.0 = 0.0
+
+img
+BundleSize: 10.0 have 1 bundles
+Pirce Calculation: 
+1 x 800.0 = 800.0
+
+flac
+BundleSize: 9.0 have 1 bundles
+Pirce Calculation: 
+1 x 1147.5 = 1147.5
+BundleSize: 6.0 have 1 bundles
+Pirce Calculation: 
+1 x 810.0 = 810.0
+
+Total Price: 5047.5
+
